@@ -55,9 +55,7 @@ export default function Home() {
 
   return (
     <Box sx={{ p: 4 }}>
-      <Typography variant="h4" gutterBottom>Europe : Consensus par secteur</Typography>
-
-      <Box sx={{ mb: 3 }}>
+      <Box sx={{ mb: 2 }}>
         {sectors.map(sector => (
           <Button
             key={sector}
@@ -69,6 +67,8 @@ export default function Home() {
           </Button>
         ))}
       </Box>
+
+      <Typography variant="h4" gutterBottom>Europe : Consensus par secteur</Typography>
 
       {loading && (
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
