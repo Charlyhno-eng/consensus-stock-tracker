@@ -1,19 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import * as cheerio from 'cheerio';
-import { stockCodes } from '@/utils/stockCodes';
+import { stockCodesPEA } from '@/utils/stockCodes';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const sector = searchParams.get('sector');
 
-  if (!sector || !stockCodes[sector]) {
+  if (!sector || !stockCodesPEA[sector]) {
     return NextResponse.json({ error: 'Invalid or missing sector' }, { status: 400 });
   }
 
   try {
     const results: Record<string, { name: string; consensus: string }[]> = {};
-
-    const stocks = stockCodes[sector];
+    const stocks = stockCodesPEA[sector];
 
     for (const [code, stockName] of Object.entries(stocks)) {
       const url = `https://www.boursorama.com/cours/consensus/${code}/`;
