@@ -1,7 +1,3 @@
-Here is a complete README in English, tailored for your project:
-
----
-
 # Stock Consensus Scraper
 
 This is a **Next.js** application that scrapes stock market consensus data from **Boursorama** and displays it by sector.
