@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
-import { stockCodesPEA } from '@/utils/stockCodes';
+import { stockCodesEurope } from '@/utils/stockCodesEurope';
 
 export async function GET() {
-  const sectors = Object.keys(stockCodesPEA);
+  const sectors = Object.keys(stockCodesEurope);
   return NextResponse.json(sectors);
 }

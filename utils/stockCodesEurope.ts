@@ -1,4 +1,4 @@
-export const stockCodesPEA: Record<string, Record<string, string>> = {
+export const stockCodesEurope: Record<string, Record<string, string>> = {
   Luxe: {
     '1rPMC': 'LVMH',
     '1rPRMS': 'HERMES INTL',
@@ -54,4 +54,10 @@ export const stockCodesPEA: Record<string, Record<string, string>> = {
     '1rPNEX': 'NEXANS',
     '1rPSGO': 'SAINT-GOBAIN'
   }
+};
+
+export const stockCodesAmerique: Record<string, Record<string, string>> = {
+  Technologie: {
+    'NVDA': 'NVIDIA',
+  },
 };

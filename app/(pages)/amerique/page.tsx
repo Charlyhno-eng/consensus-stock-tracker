@@ -32,7 +32,7 @@ export default function Home() {
   const [selectedSector, setSelectedSector] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('/api/sectors/europe')
+    fetch('/api/sectors/amerique')
       .then(res => res.json())
       .then(setSectors)
       .catch(console.error);
@@ -42,7 +42,7 @@ export default function Home() {
     setLoading(true);
     setSelectedSector(sector);
     try {
-      const res = await fetch(`/api/consensus/europe?sector=${sector}`);
+      const res = await fetch(`/api/consensus/amerique?sector=${sector}`);
       if (!res.ok) throw new Error('API returned error');
       const json = await res.json();
       setData(json);
@@ -55,7 +55,7 @@ export default function Home() {
 
   return (
     <Box sx={{ p: 4 }}>
-      <Typography variant="h4" gutterBottom>Europe : Consensus par secteur</Typography>
+      <Typography variant="h4" gutterBottom>Amérique : Consensus par secteur</Typography>
 
       <Box sx={{ mb: 3 }}>
         {sectors.map(sector => (
