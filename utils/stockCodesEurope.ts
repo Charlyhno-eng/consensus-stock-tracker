@@ -1,63 +1,89 @@
 export const stockCodesEurope: Record<string, Record<string, string>> = {
-  Luxe: {
+  'Consommation discrétionnaire': {
     '1rPMC': 'LVMH',
     '1rPRMS': 'HERMES INTL',
-    '1rPOR': "L'OREAL",
     '1rPKER': 'KERING',
     '1rPITP': 'INTERPARFUMS',
+    '1zADS': 'ADIDAS',
+    '1rPEL': 'ESSILORLUXOTTICA',
+    '1gRACE': 'FERRARI',
+    '1rPSTLAP': 'STELLANTIS',
+    '1rPML': 'MICHELIN',
   },
-  Santé: {
+  'Consommation de base': {
+    '1rPOR': "L'OREAL",
+    '1rPBN': 'DANONE',
+    '1rPRI': 'PERNOD RICARD',
+    '1rPRCO': 'REMY COINTREAU',
+  },
+  'Santé': {
     '1rPSAN': 'SANOFI',
-    '1rPBVI': 'BUREAU VERITAS',
+    'NVO': 'NOVO NORDISK (Pas PEA Bourso)',
     '1rPDIM': 'SARTORIUS STEDIM BIOTECH ',
     '1rPIPN': 'IPSEN',
+    'FF55-GRF': 'GRIFOLS-A',
+    '1rPERF0': 'EUROFINS SCIENTIFIC',
   },
-  Industrie: {
+  'Industries': {
+    '1rPBVI': 'BUREAU VERITAS',
     '1rPAI': 'AIR LIQUID',
-    '1rPTTE': 'TOTAL ÉNERGIES',
-    '1rPENGI': 'ENGIE',
-    '1rPVIE': 'VEOLIA',
+    '1rPGTT': 'GTT',
+    '1zSIE': 'SIEMENS',
+    '1rPAIR': 'AIRBUS',
+    '1rPHO': 'THALES',
+    '1rPALO': 'ALSTOM',
+    '1zRHM': 'RHEINMETALL',
+    '1gLDO': 'LEONARDO',
     '1rPSU': 'SCHNEIDER ELECTRIC',
     '1rPDG': 'VINCI',
+    '1rPEN': 'BOUYGUES',
   },
-  Banque: {
+  'Énergie': {
+    '1rPTTE': 'TOTAL ÉNERGIES',
+    '1rPEDF': 'EDF',
+    '1rPENGI': 'ENGIE',
+    'FF55-REP': 'REPSOL',
+    '1rLGALP': 'GALP ENERGIA',
+  },
+  'Matériaux': {
+    '1rPVRLA': 'VERALLIA',
+    '1zBAS': 'BASF',
+    '1rPAKE': 'ARKEMA',
+    'FF11-UMI': 'UMICORE',
+  },
+  'Services aux collectivités': {
+    '1rPVIE': 'VEOLIA',
+    'FF55-IBE': 'IBERDROLA',
+    '1gENEL': 'ENEL',
+  },
+  'Finance': {
     '1rPBNP': 'BNP PARIBAS',
     '1rPCS': 'AXA',
+    '1rPGLE': 'SOCIETE GENERALE',
     '1rPACA': 'CRÉDIT AGRICOLE',
     '1zALV': 'ALLIANZ',
     '1gUCG': 'UNICREDIT',
-    '1rAINGA': 'ING GROUP ',
+    '1rPENX': 'EURONEXT',
+    '1rPAMUN': 'AMUNDI',
+    '1zDBK': 'DEUTSCHE BANK',
   },
-  Technologie: {
+  'Immobilier': {
+    '1rPLI': 'KLEPIERRE',
+    '1rPCOV': 'COVIVIO ',
+    '1rPGFC': 'GECINA',
+  },
+  'Technologie': {
     '1rPSTMPA': 'STMICROELETRONICS',
     '1rAASML': 'ASML HOLDING',
     '1rPDSY': 'DASSAULT SYSTEMES',
+    '1rPCAP': 'CAPGEMINI',
+    'FF55-AMS': 'AMADEUS IT GROUP',
     'ACN': 'ACCENTURE-A',
-    '1zSIE': 'SIEMENS',
-  },
-  Automobile: {
-    '1gRACE': 'FERRARI',
-    '1rPSTLAP': 'STELLANTIS',
-  },
-  Infrastructure: {
-    '1rPAIR': 'AIRBUS',
-    '1zRHM': 'RHEINMETALL',
-    '1gLDO': 'LEONARDO',
-  },
-  Télécommunications: {
-    '1rPORA': 'ORANGE ',
-    '1rPEN': 'BOUYGUES',
     '1rPTEP': 'TELEPERFORMANCE',
   },
-  Matières: {
-    '1rPRUI': 'RUBIS',
-    '1rPNEX': 'NEXANS',
-    '1rPSGO': 'SAINT-GOBAIN'
-  }
-};
-
-export const stockCodesAmerique: Record<string, Record<string, string>> = {
-  Technologie: {
-    'NVDA': 'NVIDIA',
+  'Services de communication': {
+    '1rPORA': 'ORANGE ',
+    '1zDTE': 'DEUTSCHE TELEKOM',
+    'FF55-TEF': 'TELEFONICA',
   },
 };

@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Typography variant="h4" gutterBottom sx={{ color: 'white', mb: 4 }}>
-        Europe : Consensus par secteur
+        Amérique : Consensus par secteur
       </Typography>
 
       <Box sx={{ mb: 3 }}>
