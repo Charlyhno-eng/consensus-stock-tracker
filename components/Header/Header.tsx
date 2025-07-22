@@ -3,50 +3,39 @@
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Box, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import DesktopMenu from './DesktopMenu';
+import MobileMenu from './MobileMenu';
 
 export default function Header() {
   const pathname = usePathname();
   const isAmerique = pathname === '/amerique';
   const isEurope = pathname === '/';
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
     <AppBar
       position="static"
-      elevation={0}
-      sx={{ backgroundColor: 'white', borderBottom: '1px solid #e0e0e0'}}
+      elevation={4}
+      sx={{ background: 'linear-gradient(145deg, #1e1e2f, #2c2c54)', borderBottom: '1px solid #6c5ce7' }}
     >
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Typography
-          variant="h4"
-          component="div"
-          sx={{ color: 'text.primary', fontWeight: 600 }}
-        >
-          Consensus stock tracker
+      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', py: 2 }}>
+        <Typography variant="h5" component="div" sx={{ color: 'white', fontWeight: 700 }}>
+          Consensus Stock Tracker
         </Typography>
 
-        <div>
-          <Link href="/" passHref>
-            <Button
-              variant={isEurope ? 'contained' : 'outlined'}
-              color="primary"
-              sx={{ mr: 2 }}
-            >
-              Marché européen
-            </Button>
-          </Link>
-          <Link href="/amerique" passHref>
-            <Button
-              variant={isAmerique ? 'contained' : 'outlined'}
-              color="primary"
-            >
-              Marché américain
-            </Button>
-          </Link>
-        </div>
+        <Box>
+          {isMobile ? (
+            <MobileMenu isEurope={isEurope} isAmerique={isAmerique} />
+          ) : (
+            <DesktopMenu isEurope={isEurope} isAmerique={isAmerique} />
+          )}
+        </Box>
       </Toolbar>
     </AppBar>
   );

@@ -4,7 +4,7 @@ This is a **Next.js** application that scrapes stock market consensus data from 
 
 The app fetches and displays analyst consensus for various stocks, organized by sector (Luxury, Health, etc.). Users can dynamically select a sector, and the app will scrape and display relevant data for all stocks in that category.
 
-![Overview](public/overview_webapp.png)
+![Overview](public/overview_app.png)
 
 ---
 

@@ -1,18 +1,15 @@
 "use client";
 
+import { interpretNoteMediane } from '@/utils/reusableFunctions';
 import { useEffect, useState } from 'react';
 import {
   Box,
   Button,
+  Container,
   Grid,
-  Paper,
+  Card,
+  CardContent,
   Typography,
-  Table,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
   CircularProgress
 } from '@mui/material';
 
@@ -54,64 +51,97 @@ export default function Home() {
   };
 
   return (
-    <Box sx={{ p: 4 }}>
-      <Box sx={{ mb: 2 }}>
+    <Container maxWidth="lg" sx={{ py: 4 }}>
+      <Typography variant="h4" gutterBottom sx={{ color: 'white', mb: 4 }}>
+        Europe : Consensus par secteur
+      </Typography>
+
+      <Box sx={{ mb: 3 }}>
         {sectors.map(sector => (
           <Button
             key={sector}
             variant={selectedSector === sector ? 'contained' : 'outlined'}
             onClick={() => handleFetchSector(sector)}
-            sx={{ mr: 1, mb: 1 }}
+            sx={{
+              mr: 1, mb: 1,
+              color: 'white',
+              borderColor: '#6c5ce7',
+              backgroundColor: selectedSector === sector ? '#6c5ce7' : 'transparent',
+              '&:hover': { backgroundColor: '#6c5ce7' }
+            }}
           >
             {sector}
           </Button>
         ))}
       </Box>
 
-      <Typography variant="h4" gutterBottom>Amérique : Consensus par secteur</Typography>
-
       {loading && (
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
-          <CircularProgress />
+          <CircularProgress color="secondary" />
         </Box>
       )}
 
       {!loading && selectedSector && (
         <>
-          <Typography variant="h5" gutterBottom>Secteur : {selectedSector}</Typography>
+          <Typography variant="h6" gutterBottom sx={{ color: 'white', mb: 3 }}>
+            Secteur : {selectedSector}
+          </Typography>
 
           <Grid container spacing={3}>
             {Object.entries(data).map(([stockName, stockData]) => (
-              <Grid size={6} key={stockName}>
-                <Paper elevation={3} sx={{ p: 2 }}>
-                  <Typography variant="h6" gutterBottom align="center" sx={{ backgroundColor: '#f0f0f0', p: 1 }}>
-                    {stockName}
-                  </Typography>
+              <Grid
+                key={stockName}
+                size={{ xs: 12, md: 6 }}
+              >
+                <Card
+                  sx={{
+                    background: 'linear-gradient(145deg, #2c2c54, #3a3a6d)',
+                    color: 'white',
+                    borderRadius: 3,
+                    boxShadow: '0 0 20px rgba(108, 92, 231, 0.5)',
+                    border: '1px solid #6c5ce7'
+                  }}
+                >
+                  <CardContent>
+                    <Typography variant="h6" align="center" gutterBottom sx={{ borderBottom: '1px solid #6c5ce7', pb: 1 }}>
+                      {stockName}
+                    </Typography>
 
-                  <TableContainer>
-                    <Table size="small">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell>Nom de l'Action</TableCell>
-                          <TableCell align="right">Consensus</TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {stockData.map((item, index) => (
-                          <TableRow key={index}>
-                            <TableCell>{item.name}</TableCell>
-                            <TableCell align="right">{item.consensus}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                </Paper>
+                    {stockData.map((item, index) => {
+                      let displayName = item.name;
+                      let displayConsensus = item.consensus;
+
+                      if (displayName.startsWith('Historique des objectifs de cours médian')) {
+                        displayName = 'Objectifs de cours';
+                      }
+
+                      if (displayName === 'Note médiane') {
+                        const note = parseFloat(displayConsensus.replace(',', '.'));
+                        if (!isNaN(note)) {
+                          const interpretation = interpretNoteMediane(note);
+                          displayConsensus = `${displayConsensus} (${interpretation})`;
+                        }
+                      }
+
+                      return (
+                        <Box key={index} sx={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          py: 1,
+                          borderBottom: index < stockData.length - 1 ? '1px solid #444' : 'none'
+                        }}>
+                          <Typography>{displayName}</Typography>
+                          <Typography sx={{ color: '#74b9ff' }}>{displayConsensus}</Typography>
+                        </Box>
+                      );
+                    })}
+                  </CardContent>
+                </Card>
               </Grid>
             ))}
           </Grid>
         </>
       )}
-    </Box>
+    </Container>
   );
 }
