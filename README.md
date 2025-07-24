@@ -24,7 +24,7 @@ Finally, add the url code with the stock name in the stockCode file in /utils
 
 ---
 
-## 📦 Installation
+## Installation
 
 ```bash
 npm install
