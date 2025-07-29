@@ -27,6 +27,7 @@ export const stockCodesEurope: Record<string, Record<string, string>> = {
   'Industries': {
     '1rPBVI': 'BUREAU VERITAS',
     '1rPAI': 'AIR LIQUID',
+    '1rPSAF': 'SAFRAN',
     '1rPGTT': 'GTT',
     '1zSIE': 'SIEMENS',
     '1rPAIR': 'AIRBUS',
